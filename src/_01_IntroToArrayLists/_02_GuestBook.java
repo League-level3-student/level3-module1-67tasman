@@ -1,5 +1,9 @@
 package _01_IntroToArrayLists;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class _02_GuestBook {
 	// Create a GUI with two buttons. One button reads "Add Name" and the other button reads "View Names". 
 	// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
@@ -9,7 +13,18 @@ public class _02_GuestBook {
 	// Guest #2: Sandy Summers
 	// Guest #3: Greg Ganders
 	// Guest #4: Donny Doners
+	public static void main(String[] args) {
+	JFrame frame = new JFrame();
+	JButton button = new JButton();
+	JButton button2 = new JButton();
+	JPanel panel = new JPanel();
+	frame.add(panel);
+	panel.add(button);
+	panel.add(button2);
+	button.setText("Add Name");
+	button2.setText("View Names");
+	frame.pack();
+	frame.setVisible(true);
 	
-	
-	
+}
 }

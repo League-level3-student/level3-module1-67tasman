@@ -86,14 +86,14 @@ private int[] intArray;
 		//A. create a new array that is one element smaller than the member array
 		int [] intArray2 = new int[intArray.length-1]; 
 		//B. make a for loop to iterate through the member array
-		for(int i = 0; i < intArray2.length ; i++) {
+		for(int i = 0; i < intArray.length ; i++) {
 			//C. if i  is less than location
 			//		set the element at i of the new array to the element at i of the member array
-			if(intArray2[i]<location) {
-				intArray2[i] = intArray[i];
+			if(i<location) {
+				 intArray2[i] = intArray[i];
 			}
 			//D. else if i  is greater than location
-			else if(intArray2[i]> location) {
+			else if(i > location) {
 //				set the element at i - 1 of the new array to the element at i of the member array
 				intArray2[i-1] = intArray[i];
 			}
@@ -112,12 +112,13 @@ private int[] intArray;
 	
 	//11. Complete the size method so that it returns the length of the member array.
 	public int size() {
-		return 0;
+		return intArray.length;
 	}
 	
 	//12. Complete the clear array so that it sets the member array 
 	//    equal to a new integer array of size 0
 	public void clear() {
+		intArray = new int[0];
 	}
 	
 	//13. Run the test again to see if you are finished.
