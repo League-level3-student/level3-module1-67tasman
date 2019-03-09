@@ -2,6 +2,8 @@ package _01_IntroToArrayLists;
 
 import java.util.ArrayList;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 /**
  * Copyright The League of Amazing Programmers 2013-2017 Level 3 Two ArrayList
  * Cleaning Exercises Duration=.00 Platform=Eclipse Type=Recipe Objectives=
@@ -35,7 +37,11 @@ public class _04_RemovingStuffFromArrayLists {
 		System.out.println(stuffIFoundInTheYard.size());
 
 		/* TODO 1: Clean out the dirt but keep the delicious worms. */
-		
+	for(int i = stuffIFoundInTheYard.size() - 1  ; i >= 0 ; i-- ) {
+	if(stuffIFoundInTheYard.get(i).type.equals("dirt")) {
+		stuffIFoundInTheYard.remove(i);
+	}
+	}
 		
 		
 		
@@ -74,7 +80,17 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('r');
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
-
+		System.out.println(truth.size());
+		for(int i = truth.size() - 1  ; i >= 0 ; i-- ) {
+			if(truth.get(i).toString().equals("#")) {
+				truth.remove(i);
+			}
+			}
+		System.out.println(truth.size());
+		for(int i = 0  ; i < truth.size() ; i++ ) {
+			System.out.println(truth.get(i));
+			}
+					
 		
 		
 	}
