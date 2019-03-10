@@ -13,10 +13,14 @@ public class _05_LongChipCompetition {
 	 * initialize The Beatles before you start your search. *
 	 **/
 	private ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
-
+  
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
-		
+		lcc.initializeBeatles();
+		//Where do i do the for loop?
+	    for (int i = 0; i < theBeatles.getSize(); i++) {
+	    	
+	    }
 	}
 	
 	private void initializeBeatles() {
