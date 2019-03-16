@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 public class _06_IPodShuffle{
 	JFrame frame = new JFrame();
+	JButton button = new JButton("Suprise Me!");
+	
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
 		Song demo = new Song("demo.mp3");
@@ -31,8 +33,6 @@ public class _06_IPodShuffle{
 	
 	public static void main(String[] args) {
 		new _06_IPodShuffle();
-		//JButton button = new JButton("Suprise Me!");
-		//JFrame frame = new JFrame();
-		//frame.add(button);
+		frame.add(button); //Where do i put the Jbutton stuff?
 	}
 }
