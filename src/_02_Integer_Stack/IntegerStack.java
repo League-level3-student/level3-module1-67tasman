@@ -1,8 +1,12 @@
 package _02_Integer_Stack;
 
+import java.util.ArrayList;
+
+import _01_IntroToArrayLists.Song;
+
 public class IntegerStack {
 	//1. create a private array of integers
-	
+	private ArrayList<Integer> songs = new ArrayList<Integer>(0);
 	//2. complete the constructor by initializing the member array
 	//   to a new array of length 0. This prevents null pointer exceptions.
 	public IntegerStack() {
