@@ -27,6 +27,8 @@ public class _02_TextUndoRedo implements KeyListener {
 	JPanel p = new JPanel();
 	JLabel l = new JLabel();	
 	Stack<String> t = new Stack<String>();
+	Stack<String> undo = new Stack<String>();
+	
 	
 	public static void main(String[] args) {
 		 _02_TextUndoRedo text = new  _02_TextUndoRedo();
@@ -63,15 +65,22 @@ public class _02_TextUndoRedo implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getKeyCode() >= 32 && e.getKeyCode() <= 126) {
 		t.push(e.getKeyChar()+"");
-		
-			l.setText(l.getText() + t.pop());
-		if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
-		String s = l.getText().substring(0, l.getText().length()-1);
-		l.setText(s);
-			
+		l.setText(l.getText() + e.getKeyChar());
 		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
+		String last = "" + l.getText().charAt(l.getText().length()-1);
+		System.out.println(last);
+		undo.push(last);
+		String s = l.getText().substring(0, l.getText().length()-1);
+		l.setText(s);	
+		}
+	if(e.getKeyCode()==27) {
+		String undone = l.getText() + undo.pop() ;
+		l.setText(undone);
+	}
 		
 	}
 
