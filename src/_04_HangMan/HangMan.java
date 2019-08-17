@@ -12,6 +12,8 @@ public class HangMan{
 	int length;
 	JLabel label;
 	String text = "";
+	int rounds;
+	Stack<String> words = new Stack<String>();
 	public static void main(String[] args) {
 HangMan hangman = new HangMan();
 hangman.setup();
@@ -20,8 +22,7 @@ hangman.guess();
 	}
 	void setup(){
 		String String_rounds = JOptionPane.showInputDialog("How many rounds would you like to play?");
-		int rounds = Integer.valueOf(String_rounds);
-		Stack<String> words = new Stack<String>();
+		rounds = Integer.valueOf(String_rounds);
 		for(int i = 0 ; i < rounds ; i++) {
 		String dictionary = Utilities.readRandomLineFromFile("dictionary.txt");
 		words.push(dictionary);
@@ -34,24 +35,18 @@ hangman.guess();
 		JPanel panel = new JPanel();
 		panel.add(label);
 		frame.add(panel);
-		displayText();
 		//frame.pack();
 		frame.setVisible(true);
 		
 	}
 	
-
-	
-	
-	
-	void displayText(){
-		for(int i = 0; i < length ; i++) {
-			text += "_ ";
-		}
-		label.setText(text);
-	}
 	
 	void guess() {
+		for(int j = 0 ; j<rounds ; j++) {
+			for(int i = 0; i < length ; i++) {
+				text += "_ ";
+			}
+			label.setText(text);
 		int incorrect = 0;
 		while(incorrect<12) {
 		String remaining = 12-incorrect + "";
@@ -60,14 +55,23 @@ hangman.guess();
 		if(word.contains(stringguess)) {
 		for(int i = 0; i < length ; i++) {
 			if(guess == word.charAt(i)) {
-			text = text.substring(0,i) + guess + text.substring(i+1);
+			text = text.substring(0,i*2) + guess + text.substring(i*2+1);
 			label.setText(text);
 		}
+			//else {
+				
+			//}
 		}
 		}
 		else {
 			incorrect = incorrect+1;
 			JOptionPane.showMessageDialog(null, "Wrong, try again.");
+		}
+		text = "";
+		String dictionary = Utilities.readRandomLineFromFile("dictionary.txt");
+		words.push(dictionary);
+		}
+		word = words.pop().toString();
 		}
 		}
 		
@@ -76,4 +80,4 @@ hangman.guess();
 	}
 	
 	
-}
+
