@@ -55,6 +55,7 @@ System.out.println(x);
 		}
 		
 		if(button2 == pressed) {
+			
 		JOptionPane.showMessageDialog(null, names);
 		}
 	}
